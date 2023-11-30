@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital_Managment_System.Controllers
 {
-    public class PatientUiController : Controller
+    public class PatientController : Controller
     {
         private readonly IApi<Patient> _api;
-        public PatientUiController()
+        public PatientController()
         {
             _api = new ApiResponseHandler<Patient>();
         }

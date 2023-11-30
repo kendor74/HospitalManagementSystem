@@ -31,6 +31,7 @@
             window.scrollTo(0, 1);
         }
     </script>
+    
     <!-- Google Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -79,7 +80,7 @@
                     <li class="nav-item  mr-3 mt-lg-0 mt-3">
                         <a class="nav-link" href="services.html">services</a>
                     </li>
-                    <li class="nav-item dropdown mr-3 mt-lg-0 mt-3">
+                   @*  <li class="nav-item dropdown mr-3 mt-lg-0 mt-3">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">
                             Dropdown
@@ -89,7 +90,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="typo.html">Typography</a>
                         </div>
-                    </li>
+                    </li> *@
                     <li class="nav-item mr-3 mt-lg-0 mt-3">
                         <a class="nav-link" href="gallery.html">Gallery</a>
                     </li>
@@ -98,6 +99,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn  ml-lg-2 w3ls-btn" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
+                            Register
+                        </button>
                     </li>
                     <li>
                         <button type="button" class="btn  ml-lg-2 w3ls-btn" data-toggle="modal" aria-pressed="false" data-target="#exampleModal">
@@ -534,7 +540,7 @@
     </footer>
     <!-- //footer -->
     <!-- login  -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@*     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -573,8 +579,8 @@
             </div>
         </div>
     </div>
-    <!-- //login -->
-    <!--/Register-->
+ *@    <!-- //login -->
+@*     <!--/Register-->
     <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -618,7 +624,7 @@
 
             </div>
         </div>
-    </div>
+    </div> *@
     <!--//Register-->
     <!-- //footer -->
     <!-- js -->
@@ -626,8 +632,8 @@
     <!-- //js -->
     <script src="~/Land/js/minimal-slider.js"></script>
     <!-- flexSlider (for testimonials) -->
-    <!-- Calendar -->
-    <link rel="stylesheet" href="~/Land/css/jquery-ui.css" />
+@*     <!-- Calendar -->
+ *@    <link rel="stylesheet" href="~/Land/css/jquery-ui.css" />
     <script src="~/Land/js/jquery-ui.js"></script>
     <script>
         $(function () {
@@ -648,7 +654,7 @@
         });
     </script>
     <!-- //flexSlider (for testimonials) -->
-    <!-- script for password match -->
+@*     <!-- script for password match -->
     <script>
         window.onload = function () {
             document.getElementById("password1").onchange = validatePassword;
@@ -665,7 +671,7 @@
             //empty string means no validation error
         }
     </script>
-    <!-- script for password match -->
+    <!-- script for password match --> *@
     <!-- start-smooth-scrolling -->
     <script src="~/Landjs/move-top.js"></script>
     <script src="~/Landjs/easing.js"></script>
@@ -698,6 +704,13 @@
             });
 
         });
+    </script>
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+        Chatbot.init({
+            chatflowid: "7a3cd0de-dc90-4df3-b922-57dd01d5a1da",
+            apiHost: "http://localhost:3000",
+        })
     </script>
     <script src="~/Land/js/SmoothScroll.min.js"></script>
     <!-- //smooth-scrolling-of-move-up -->
