@@ -105,6 +105,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Patient\Appointment.cshtml" />
+    <None Include="Views\Patient\Patients.cshtml" />
     <None Include="wwwroot\fontawesome\js\all.js" />
     <None Include="wwwroot\fontawesome\js\all.min.js" />
     <None Include="wwwroot\fontawesome\js\brands.js" />

@@ -1,0 +1,371 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Patient Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../Register/images/banner.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .header h1 {
+                margin: 0;
+                color: #4CAF50;
+            }
+
+        .form-section {
+            display: none;
+        }
+
+            .form-section.active {
+                display: block;
+            }
+
+            .form-section:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
+
+            .form-section h2 {
+                color: #4CAF50;
+                margin-bottom: 10px;
+            }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+                .form-group input:focus,
+                .form-group select:focus,
+                .form-group textarea:focus {
+                    border-color: #4CAF50;
+                }
+
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .button-group button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 5px;
+            }
+
+                .button-group button:disabled {
+                    background-color: #ddd;
+                    cursor: not-allowed;
+                }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+            .step-indicator div {
+                flex: 1;
+                padding: 10px;
+                background-color: #f1f1f1;
+                text-align: center;
+                color: #333;
+                border-radius: 4px;
+                margin: 0 5px;
+            }
+
+            .step-indicator .active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 16px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+            .chip .closebtn {
+                margin-left: 10px;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="header">
+            <h1>Patient Information Form</h1>
+        </div>
+
+        <div class="step-indicator">
+            <div class="step step-1 active">1. Personal Info</div>
+            <div class="step step-2">2. Medical History</div>
+            <div class="step step-3">3. Appointment Details</div>
+        </div>
+
+        <form id="patientForm">
+            <!-- Step 1: Personal Information -->
+            <div class="form-section form-section-1 active">
+                <h2>Personal Information</h2>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+            </div>
+
+            <!-- Step 2: Medical History -->
+            <div class="form-section form-section-2">
+                <h2>Medical History</h2>
+                <div class="form-group">
+                    <label for="bloodType">Blood Type</label>
+                    <select id="bloodType" name="bloodType" required>
+                        <option value="" disabled selected>Select your blood type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Allergies</label>
+                    <div class="chips-container" id="allergiesContainer"></div>
+                    <input type="text" id="allergies" name="allergies" placeholder="Enter allergy and press Enter">
+                </div>
+                <div class="form-group">
+                    <label for="medications">Current Medications</label>
+                    <div class="chips-container" id="medicationsContainer"></div>
+                    <input type="text" id="medications" name="medications" placeholder="Enter medication and press Enter">
+                </div>
+                <div class="form-group">
+                    <label for="medicalConditions">Medical Conditions</label>
+                    <div class="chips-container" id="medicalConditionsContainer"></div>
+                    <input type="text" id="medicalConditions" name="medicalConditions" placeholder="Enter condition and press Enter">
+                </div>
+            </div>
+
+            <!-- Step 3: Appointment Details -->
+            <div class="form-section form-section-3">
+                <h2>Appointment Details</h2>
+                <div class="form-group">
+                    <label for="appointmentDate">Preferred Appointment Date</label>
+                    <input type="date" id="appointmentDate" name="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Preferred Appointment Time</label>
+                    <input type="time" id="appointmentTime" name="appointmentTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctor">Preferred Appointment</label>
+                    <select id="doctor" name="doctor" required>
+                        <option value="" disabled selected>Select your Department</option>
+                        <option value="Dr. Smith">Dental</option>
+                        <option value="Dr. Johnson">Surgery</option>
+                        <option value="Dr. Brown">Check Up</option>
+                        <option value="Dr. Davis">Emergancy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="button-group">
+                <button type="button" class="prev-btn" disabled>Back</button>
+                <button type="button" class="next-btn">Next</button>
+                <button type="submit" class="submit-btn" style="display: none;">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nextBtn = document.querySelector('.next-btn');
+            const prevBtn = document.querySelector('.prev-btn');
+            const submitBtn = document.querySelector('.submit-btn');
+            const formSections = document.querySelectorAll('.form-section');
+            const steps = document.querySelectorAll('.step');
+            let currentStep = 0;
+
+            nextBtn.addEventListener('click', () => {
+                if (currentStep < formSections.length - 1) {
+                    formSections[currentStep].classList.remove('active');
+                    steps[currentStep].classList.remove('active');
+                    currentStep++;
+                    formSections[currentStep].classList.add('active');
+                    steps[currentStep].classList.add('active');
+                    updateButtons();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 0) {
+                    formSections[currentStep].classList.remove('active');
+                    steps[currentStep].classList.remove('active');
+                    currentStep--;
+                    formSections[currentStep].classList.add('active');
+                    steps[currentStep].classList.add('active');
+                    updateButtons();
+                }
+            });
+
+            function updateButtons() {
+                if (currentStep === 0) {
+                    prevBtn.disabled = true;
+                } else {
+                    prevBtn.disabled = false;
+                }
+
+                if (currentStep === formSections.length - 1) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'inline-block';
+                } else {
+                    nextBtn.style.display = 'inline-block';
+                    submitBtn.style.display = 'none';
+                }
+            }
+
+            function createChip(container, text) {
+                const chip = document.createElement('div');
+                chip.className = 'chip';
+                chip.textContent = text;
+
+                const closeBtn = document.createElement('span');
+                closeBtn.className = 'closebtn';
+                closeBtn.innerHTML = '&times;';
+                closeBtn.onclick = () => container.removeChild(chip);
+                chip.appendChild(closeBtn);
+
+                container.appendChild(chip);
+            }
+
+            const allergiesInput = document.getElementById('allergies');
+            const allergiesContainer = document.getElementById('allergiesContainer');
+            allergiesInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter' && allergiesInput.value.trim() !== '') {
+                    createChip(allergiesContainer, allergiesInput.value.trim());
+                    allergiesInput.value = '';
+                    event.preventDefault();
+                }
+            });
+
+            const medicationsInput = document.getElementById('medications');
+            const medicationsContainer = document.getElementById('medicationsContainer');
+            medicationsInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter' && medicationsInput.value.trim() !== '') {
+                    createChip(medicationsContainer, medicationsInput.value.trim());
+                    medicationsInput.value = '';
+                    event.preventDefault();
+                }
+            });
+
+            const medicalConditionsInput = document.getElementById('medicalConditions');
+            const medicalConditionsContainer = document.getElementById('medicalConditionsContainer');
+            medicalConditionsInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter' && medicalConditionsInput.value.trim() !== '') {
+                    createChip(medicalConditionsContainer, medicalConditionsInput.value.trim());
+                    medicalConditionsInput.value = '';
+                    event.preventDefault();
+                }
+            });
+
+            document.getElementById('patientForm').addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Form submitted successfully!');
+            });
+        });
+    </script>
+</body>
+</html>
